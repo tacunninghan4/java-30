@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form class="search-form">
+        <input type="text" class="search" placeholder="City or State">
+        <ul class="suggestions">
+          <li>Filter for a city</li>
+          <li>or a state</li>
+        </ul>
+      </form>
+
+    <script>
+  
+        const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+        
+        
+        const cites = [];
+        
+      fetch(endPoint)
+      .then(blob => lob.json()); 
+      .then(data => cites.push(...data) ); 
+       function findMacthes(wordToMatch,cites) {
+           return cites.filter(place => {
+const regex = new RegExp(wordToMatch,'gi' );
+
+            return place.city.match(regex) || place.state.match(regex)
+           });
+       } 
+        
+       function displayWatches () {
+           const matchArray = findMacthes(this.value, cites)
+           const html = matchArray.map(place=>{
+              
+            const regex = new RegExp()
+            const cityName = place.city.replace
+            
+            function numbersWithCommas(x) {
+                return x .toString().replace(/\8(?=(\d {3} + (?!\d)) /g, ','));
+            }
+            
+            return
+               <li>
+               <span class="name">${place.city}, ${place.state}</span>
+                <span class="population"> ${numbersWithCommas(place.population)}</span>
+               </li>
+           ';'
+            }).join('');
+        suggestion.innerHtml = ;
+        
+        } 
+        
+    const searchInput = document.querySelector('.search');
+    const suggestions = document.querySelector('.suggestion');   
+        
+     searchInput.addEventListener('change', displayMatches);   
+     searchInput.addEventListener('keyUp', displayMatches);   
+        
+        
+        
+        
+        
+        </script>
+        
+
+
+
+
+</body>
+</html>
